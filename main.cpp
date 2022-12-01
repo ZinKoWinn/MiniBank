@@ -109,6 +109,13 @@ void userMenu() {
                 kBank.deposit();
             }
                 break;
+            case 2: {
+                cout << "===========================================" << endl;
+                cout << "               CASH WITHDRAW               " << endl;
+                cout << "===========================================" << endl << endl;
+                kBank.withDraw();
+            }
+                break;
         }
     } while (option != 5);
 }

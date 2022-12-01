@@ -199,6 +199,17 @@ string timeStampToDateTime(const char *timeStamp) {
     return asctime(localtime(&t));
 }
 
+void KBank::withDraw() {
+    User user = findByUserName(currentUserName);
+    int amount = 0;
+    cout << "Enter amount : ";
+    cin >> amount;
+    cout << endl;
+    user.amount -= amount;
+//    user.history = historyToString(depositHistory(amount, to_string(time(NULL))));
+    update(user);
+}
+
 void KBank::update(User user) {
     fstream file;
     fstream tempFile;
