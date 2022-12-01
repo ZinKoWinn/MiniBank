@@ -1,35 +1,40 @@
 //
-// Created by Zin Ko Winn on 22/11/2022.
+// Created by Zin Ko Winn on 1/12/2022.
 //
 
-#ifndef MINIBANK_BANK_H
-#define MINIBANK_BANK_H
-
 #include "iostream"
+#include "model/user.h"
 
 using namespace std;
-
-struct User {
-    string userName;
-    string password;
-    string phoneNumber;
-    string email;
-};
 
 namespace Bank {
 
     class KBank {
     public:
-        void mainMenu();
-
-        void adminMenu();
-
-        void userMenu();
-
         void registration();
 
-        void login();
+        User *login();
+
+        User findByUserName(std::string userName);
+
+        void setCurrentUserName(string userName);
+
+        string getCurrentUserName();
+
+        void showAllUser();
+
+        bool isAdminUser(std::string userName);
+
+        void deposit();
+
+    private:
+        std::string currentUserName;
+
+        bool isExist(std::string userName);
+
+        void update(User user);
+
+        void showData(User *user);
     };
 
 }
-#endif //MINIBANK_BANK_H
